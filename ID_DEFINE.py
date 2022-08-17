@@ -25,7 +25,8 @@ user_name='root'
 passwd_name=''
 
 import os
-dirName = os.path.dirname(os.path.abspath(__file__))
+# dirName = os.path.dirname(os.path.abspath(__file__))
+dirName = "D:\\HRM\\"
 bitmapDir = os.path.join(dirName, 'bitmaps')
 picDir=os.path.join(dirName,'picture')
 BROWSE_MODE=0
@@ -89,5 +90,9 @@ jobTitleDic = {
     "董事长":['董事长'],
     "董事":['董事'],
     "总经理":['总经理'],
-    "钢制品":['横剪主操','横剪辅助','纵剪主操','纵剪辅助','成型机','2S','折弯工','折弯辅助','冲压工']
+    "钢制品":['横剪主操','横剪辅助','纵剪主操','纵剪辅助','成型机','2S','折弯工','折弯辅助','冲压工'],
+    "门/卫生单元":['装配','打磨','焊接','喷涂'],
+    "板车间":["38吨热压机抬板","38吨热压机刮胶","38吨热压机排棉",
+             "40吨热压机前道抬板","40吨热压机刮胶","40吨热压机排棉","40吨热压机开槽","40吨热压机后道抬板",
+             "岩棉切割","包装"],
 }

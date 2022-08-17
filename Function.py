@@ -14,7 +14,6 @@ from ID_DEFINE import *
 # import face_recognition
 
 def GetDepartmentInfo(log,whichDB=0):
-    print("here db",whichDB,dbHostName[whichDB])
     try:
         db = MySQLdb.connect(host="%s" % dbHostName[whichDB], user='%s' % dbUserName[whichDB],
                              passwd='%s' % dbPassword[whichDB], db='%s' % dbName[whichDB], charset='utf8')
@@ -66,10 +65,14 @@ def GetPicture(log,id,whichDB=0):
     cursor = db.cursor()
     sql = """SELECT 照片 from `info_staff` WHERE `员工编号`='%s'"""%(id)
     cursor.execute(sql)
-    data = cursor.fetchone()  # 获得压条信息
-    data=data[0]
+    data = cursor.fetchone()
     db.close()
-    return 0,data
+    if data!=None:
+        if len(data)>0:
+            data=data[0]
+            return 0,data
+    return -1,""
+
 def GetFaceCharacter(log,id):
     data=[]
     try:

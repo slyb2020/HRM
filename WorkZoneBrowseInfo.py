@@ -105,10 +105,10 @@ class BrowseIndividualInfoPanel(wx.Panel):
         hbox.Add(self.name_CTRL,0)
         # hbox.Add((15,-1))
         self.sexy=data[1]
-        label=wx.StaticText(self,-1,"姓别:",size=(60,-1),style=wx.TE_RIGHT)
-        self.sexy_COMB=wx.ComboBox(self,-1,self.sexy,size=(100,25),choices=["男","女"])
+        label=wx.StaticText(self,-1,"性别:",size=(50,-1),style=wx.TE_RIGHT)
+        self.sexy_COMB=wx.ComboBox(self,-1,self.sexy,size=(120,25),choices=["男","女"])
         self.sexy_COMB.Enable(False)
-        hbox.Add((10,-1))
+        # hbox.Add((10,-1))
         hbox.Add(label,0,wx.TOP|wx.RIGHT,5)
         hbox.Add(self.sexy_COMB,0)
         # hbox.Add((15,-1))
@@ -138,11 +138,11 @@ class BrowseIndividualInfoPanel(wx.Panel):
         hbox.Add(label,0,wx.TOP|wx.RIGHT,5)
         hbox.Add(self.age_CTRL,0)
         # hbox.Add((15,-1))
-        label=wx.StaticText(self,-1,"民族:",size=(60,-1),style=wx.TE_RIGHT)
+        label=wx.StaticText(self,-1,"民族:",size=(50,-1),style=wx.TE_RIGHT)
         self.nationality=data[14]
-        self.nationality_COMBO=wx.ComboBox(self,-1,self.nationality,size=(100,25),choices=['汉族','蒙古族','回族','藏族','维吾尔族','苗族','彝族','壮族','布依族','朝鲜族','满族','侗族','瑶族','白族','土家族','哈尼族','哈萨克族','傣族','黎族','僳僳族','佤族','畲族','高山族','拉祜族','水族','东乡族','纳西族','景颇族','柯尔克孜族','土族','达斡尔族','仫佬族','羌族','布朗族','撒拉族','毛南族','仡佬族','锡伯族','阿昌族','普米族','塔吉克族','怒族','乌孜别克族','俄罗斯族','鄂温克族','德昂族','保安族','裕固族','京族','塔塔尔族','独龙族','鄂伦春族','赫哲族','门巴族','珞巴族','基诺族'])
+        self.nationality_COMBO=wx.ComboBox(self,-1,self.nationality,size=(120,25),choices=['汉族','蒙古族','回族','藏族','维吾尔族','苗族','彝族','壮族','布依族','朝鲜族','满族','侗族','瑶族','白族','土家族','哈尼族','哈萨克族','傣族','黎族','僳僳族','佤族','畲族','高山族','拉祜族','水族','东乡族','纳西族','景颇族','柯尔克孜族','土族','达斡尔族','仫佬族','羌族','布朗族','撒拉族','毛南族','仡佬族','锡伯族','阿昌族','普米族','塔吉克族','怒族','乌孜别克族','俄罗斯族','鄂温克族','德昂族','保安族','裕固族','京族','塔塔尔族','独龙族','鄂伦春族','赫哲族','门巴族','珞巴族','基诺族'])
         self.nationality_COMBO.Enable(False)
-        hbox.Add((10,-1))
+        # hbox.Add((10,-1))
         hbox.Add(label,0,wx.TOP|wx.RIGHT,5)
         hbox.Add(self.nationality_COMBO,0)
         # hbox.Add((15,-1))
@@ -169,10 +169,10 @@ class BrowseIndividualInfoPanel(wx.Panel):
         # hbox.Add((15,-1))
         self.phone_number=data[8]
         self.marriage=data[24]
-        label = wx.StaticText(self, -1, "电话:", size=(60, -1), style=wx.TE_RIGHT)
-        self.phone_CTRL = wx.TextCtrl(self, -1, self.phone_number, size=(100, 25))
+        label = wx.StaticText(self, -1, "电话:", size=(50, -1), style=wx.TE_RIGHT)
+        self.phone_CTRL = wx.TextCtrl(self, -1, self.phone_number, size=(120, 25))
         self.phone_CTRL.Enable(False)
-        hbox.Add((10, -1))
+        # hbox.Add((10, -1))
         hbox.Add(label, 0, wx.TOP | wx.RIGHT, 5)
         hbox.Add(self.phone_CTRL, 0)
         # hbox.Add((15,-1))
@@ -197,12 +197,12 @@ class BrowseIndividualInfoPanel(wx.Panel):
         hbox.Add(self.techtitle_COMBO, 0)
         # hbox.Add((15,-1))
         self.rank=data[12]
-        label = wx.StaticText(self, -1, "职务:", size=(60, -1), style=wx.TE_RIGHT)
+        label = wx.StaticText(self, -1, "职务:", size=(50, -1), style=wx.TE_RIGHT)
         # self.rank_CTRL = wx.TextCtrl(self, -1, self.rank, size=(100, 25))
-        print("rank=",self.rank)
-        self.rank_CTRL = wx.ComboBox(self,-1,size=(100,25))
+        self.rank_CTRL = wx.ComboBox(self,-1,size=(120,25))
+        self.rank_CTRL.SetValue(self.rank)
         self.rank_CTRL.Enable(False)
-        hbox.Add((10, -1))
+        # hbox.Add((10, -1))
         hbox.Add(label, 0, wx.TOP | wx.RIGHT, 5)
         hbox.Add(self.rank_CTRL, 0)
         # hbox.Add((15,-1))
@@ -245,10 +245,10 @@ class BrowseIndividualInfoPanel(wx.Panel):
                                               )
             self.dimission_year_CTRL.Enable(False)
         else:
-            label = wx.StaticText(self.panel2, -1, "工龄:", size=(60, -1), style=wx.TE_RIGHT)
-            self.job_year_CTRL = wx.TextCtrl(self.panel2, -1, str(today.year-self.onboarding_time.year), size=(80, 25), style=wx.TE_READONLY)
+            label = wx.StaticText(self.panel2, -1, "工龄:", size=(50, -1), style=wx.TE_RIGHT)
+            self.job_year_CTRL = wx.TextCtrl(self.panel2, -1, str(today.year-self.onboarding_time.year), size=(100, 25), style=wx.TE_READONLY)
             unit_label = wx.StaticText(self.panel2, -1, "年", size=(20, -1), style=wx.TE_RIGHT)
-        hbox.Add((10, -1))
+        # hbox.Add((10, -1))
         ls_box=wx.BoxSizer()
         ls_box.Add(label, 0, wx.TOP | wx.RIGHT, 5)
         if(self.employment_state=="离职"):
@@ -305,12 +305,20 @@ class BrowseIndividualInfoPanel(wx.Panel):
             self.position_COMBO.SetItems(list)
             self.position_COMBO.SetValue(self.position)
             self.position_COMBO.Enable(False)
-            self.ke_COMBO.Show(True)
-            self.position_COMBO.Show(True)
+            # self.ke_COMBO.Show(True)
+            # self.position_COMBO.Show(True)
+        # else:
+        #     self.ke_COMBO.Show(False)
+        #     self.position_COMBO.Show(False)
+        if self.position=='':
+            position=self.ke
         else:
-            self.ke_COMBO.Show(False)
-            self.position_COMBO.Show(False)
-        print("ke=",self.ke)
+            position=self.position
+        items=[]
+        if position!='':
+            items = jobTitleDic[position]
+        self.rank_CTRL.SetItems(items)
+        self.rank_CTRL.SetValue(self.rank)
         vbox.Add((-1, 20))
         vbox.Add(hbox, 0)
         vbox.Add((-1,15))
@@ -477,7 +485,12 @@ class BrowseIndividualInfoPanel(wx.Panel):
         if(mode==EDIT_MODE):
             self.SwitchToEditMode()
     def OnPositionCOMBOChanged(self,event):
-        print("positionChanged")
+        position = self.position_COMBO.GetValue()
+        if position!=self.position:
+            self.position = position
+            items = jobTitleDic[position]
+            self.rank_CTRL.SetItems(items)
+            self.rank_CTRL.SetValue(items[0])
     def OnKeComboChanged(self,event):
         self.position_COMBO.SetItems([])
         self.position_COMBO.Enable(False)
@@ -496,7 +509,7 @@ class BrowseIndividualInfoPanel(wx.Panel):
             for i in position_list:
                 list.append(i[0])
         if(list):#说明有工位列表
-            self.position_COMBO.Show(True)
+            # self.position_COMBO.Show(True)
             self.position_COMBO.SetItems(list)
             if(len(list)==1):#只有一个工位可选
                 self.position_COMBO.SetValue(list[0])
@@ -507,13 +520,12 @@ class BrowseIndividualInfoPanel(wx.Panel):
         else:
             jobTitle = jobTitleDic[ke]
             # jobTitle = eval(jobTitle)
-            print("职务：",jobTitle)
             self.rank_CTRL.SetValue(jobTitle[0])
-            self.position_COMBO.Show(False)
+            # self.position_COMBO.Show(False)
             self.position_COMBO.SetValue("")
             self.position_COMBO.Enable(False)
-        self.Layout()
-        self.Refresh()
+        # self.Layout()
+        # self.Refresh()
     def OnChangePassword(self,event):
         dlg = wx.TextEntryDialog(
                 self, '在修改密码之前，请先输入原密码：',
@@ -560,8 +572,8 @@ class BrowseIndividualInfoPanel(wx.Panel):
         self.ke_COMBO.Enable(False)
         self.position_COMBO.SetItems([])
         self.position_COMBO.Enable(False)
-        self.Layout()
-        self.Refresh()
+        # self.Layout()
+        # self.Refresh()
         if ke_list!=[]:#如果"ke"列表不为空，说明后面害的通过combo控件来选择可，所以需要对ke_combo控件进行初始化
             list=[]
             for i in ke_list:#根据"ke"列表生成一个纯粹的下属科名列表（科列表里还包括各个科所属的工位名，不能直接用）
@@ -831,8 +843,11 @@ class BrowseIndividualInfoPanel(wx.Panel):
             self.IC_BUTTON.Enable(False)
             self.techtitle_COMBO.SetValue(self.techtitle)
             self.techtitle_COMBO.Enable(False)
-            self.rank_CTRL.ChangeValue(self.rank)
+            self.rank_CTRL.SetValue(self.rank)
             self.rank_CTRL.Enable(False)
+            self.chu_COMBO.Enable(False)
+            self.ke_COMBO.Enable(False)
+            self.position_COMBO.Enable(False)
             self.Onboarding_time_CTRL.SetValue(self.onboarding_time)
             self.Onboarding_time_CTRL.Enable(False)
             self.employment_state_COMBO.SetValue(self.employment_state)
@@ -862,7 +877,6 @@ class BrowseIndividualInfoPanel(wx.Panel):
             self.parent.SetPageText(self.parent.GetSelection(),"%s档案信息"%self.name)
             wx.PostEvent(self.master, evt)
     def SaveDataInDB(self,whichDB=WHICHDB):
-        print("save")
         try:
             db = MySQLdb.connect(host="%s" % dbHostName[whichDB], user='%s' % dbUserName[whichDB],
                                  passwd='%s' % dbPassword[whichDB], db='%s' % dbName[whichDB], charset='utf8')
@@ -910,7 +924,7 @@ class BrowseIndividualInfoPanel(wx.Panel):
         self.IC_BUTTON.Enable(False)
         self.techtitle_COMBO.SetValue(self.techtitle)
         self.techtitle_COMBO.Enable(False)
-        self.rank_CTRL.ChangeValue(self.rank)
+        self.rank_CTRL.SetValue(self.rank)
         self.rank_CTRL.Enable(False)
         self.Onboarding_time_CTRL.SetValue(self.onboarding_time)
         self.Onboarding_time_CTRL.Enable(False)

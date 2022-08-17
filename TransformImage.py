@@ -54,7 +54,7 @@ def MakeImage(job_id):
     base64 -> image
     :return:
     """
-    record=ReadInfoImage(job_id)
+    record=ReadInfoImage(job_id,whichDB=WHICHDB)
     if(record[0]!=""):
         with open(picDir+'\\%s.jpg'%job_id, 'wb') as file:
             image = base64.b64decode(record[0])  # 解码
