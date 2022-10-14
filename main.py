@@ -48,16 +48,16 @@
 #2.照片保存时，更新人脸特征字段
 #20200406A
 #1.加入人脸识别界面及功能，face++的识别准确率极高，能够达到实用的程度
-VERSION="0.20191011A"
+VERSION="20220831"
 import wx
 import wx.adv
 from MyClass import *
 from ID_DEFINE import *
 def main():
     app = wx.App()
-    win = MyMDI(None, title="TWT-HRM %s——人力资源管理系统     Version %s"%(COMPANY_NAME,VERSION), size=(1350, 800))  # 1.通过在构造函数中指定title和size参数来为窗口设定标题和大小
-    win.Show()
+    win = MyMDI(None, title="%s——人力资源管理系统     Version %s"%(COMPANY_NAME,VERSION), size=(1350, 800))  # 1.通过在构造函数中指定title和size参数来为窗口设定标题和大小
     win.Center(wx.BOTH)
+    win.Show()
     app.MainLoop()
 
 

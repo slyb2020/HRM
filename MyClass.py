@@ -65,96 +65,6 @@ class MyMDI(wx.MDIParentFrame):
         self.Bind(FNB.EVT_FLATNOTEBOOK_PAGE_CHANGED,self.OnNotebookPageChange,self.workzoneBrowseInfoWindow.ntb)
         self.Bind(EVT_UPDATE_TREE, self.OnUpdateStaffTree)#这个是自建的事件处理
         # self.Bind(wx.EVT_TEXT, self.OnDoSearch, self.search)
-    # def OnFaceRecognitionPlusPlus(self,event):
-    #     if(not self.workzoneFaceRecognitionWindow):
-    #         self.workzoneFaceRecognitionWindow = FaceRecognitionPanel(self,self.log)
-    #         self.workzoneFaceRecognitionWindow.SetTitle("人脸识别")
-    #     self.workzoneFaceRecognitionWindow.ShowUnknownPic('me.jpg')
-    #     self.workzoneFaceRecognitionWindow.Maximize(True)
-    #     self.workzoneFaceRecognitionWindow.Show(True)
-    #     # faceId1="me.jpg"
-    #     # from Function import GetAllIDWithPicture, GetPicture
-    #     # error, data = GetAllIDWithPicture(self.log)
-    #     # for i in data:
-    #     #     error, picture_data = GetPicture(self.log, i)
-    #     #     if (error != -1):
-    #     #         faceId2 = 'ls.jpg'
-    #     #         self.workzoneFaceRecognitionWindow.ShowKnownPic('ls.jpg')
-    #     #         import base64
-    #     #         with open(faceId2, 'wb') as file:
-    #     #             image = base64.b64decode(picture_data)  # 解码
-    #     #             file.write(image)
-    #     #         data = {"api_key": key, "api_secret": secret}
-    #     #         files = {"image_file1": open(faceId1, "rb"), "image_file2": open(faceId2, "rb")}
-    #     #         response = requests.post(compare_url, data=data, files=files)
-    #     #         req_con = response.content.decode('utf-8')
-    #     #         req_dict = JSONDecoder().decode(req_con)
-    #     #         # print(req_dict)
-    #     #         confindence = req_dict['confidence']
-    #     #         print(confindence)
-    #     #         if confindence >= 65:
-    #     #             print('True')
-    #     #             # break
-    #     #         else:
-    #     #             print('False')
-    # def OnFaceRecognition(self,event):
-    #     unknown_image = face_recognition.load_image_file("me.jpg")
-    #     unknown_face_encoding = face_recognition.face_encodings(unknown_image)[0]
-    #     # from Function import GetAllIDWithFaceCharactor,GetFaceCharacter
-    #     # error,data=GetAllIDWithPicture(self.log)
-    #     # import numpy as np
-    #     # # darr =  np.array('[1 2 3 4 5]')
-    #     # # print("darr=",darr)
-    #     # for i in data:
-    #     #     print("ID=",i)
-    #     #     error,face_encoding_data=GetFaceCharacter(self.log,i)
-    #     #     if(error!=-1):
-    #     #         face_encoding_data=np.array(face_encoding_data)
-    #     #         print("face_encoding_data=",face_encoding_data)
-    #     #         #好吧，这个数据是个矩阵，难道要我把数据写成文件，再把文件读出来？
-    #     #         # a=eval(face_encoding_data)
-    #     #         known_faces = [
-    #     #             face_encoding_data
-    #     #         ]
-    #     #     results = face_recognition.compare_faces(known_faces, unknown_face_encoding)
-    #     #     print(i,"'s result is:",results[0])
-    #     from Function import GetAllIDWithPicture,GetPicture
-    #     error,data=GetAllIDWithPicture(self.log)
-    #     for i in data:
-    #         error,picture_data=GetPicture(self.log,i,whichDB=WHICHDB)
-    #         if(error!=-1):
-    #             pic_file_name='ls.jpg'
-    #             import base64
-    #             with open(pic_file_name, 'wb') as file:
-    #                 image = base64.b64decode(picture_data)  # 解码
-    #                 file.write(image)
-    #         image = face_recognition.load_image_file(pic_file_name)
-    #         face_encoding = face_recognition.face_encodings(image)[0]
-    #         known_faces = [
-    #             face_encoding
-    #         ]
-    #         results = face_recognition.compare_faces(known_faces, unknown_face_encoding)
-    #         print(i,"'s result is:",results[0])
-    # def OnUpdateFaceAll(self,event):
-    #     # box=wx.MessageBox("正在更新数据，请稍候","系统提示信息")
-    #     from Function import GetAllIDWithPicture,GetPicture
-    #     error,data=GetAllIDWithPicture(self.log)
-    #     for i in data:
-    #         error,picture_data=GetPicture(self.log,i,whichDB=WHICHDB)
-    #         if(error!=-1):
-    #             pic_file_name='ls.jpg'
-    #             import base64
-    #             with open(pic_file_name, 'wb') as file:
-    #                 image = base64.b64decode(picture_data)  # 解码
-    #                 file.write(image)
-    #         image = face_recognition.load_image_file(pic_file_name)
-    #         face_encoding = face_recognition.face_encodings(image)[0]
-    #         from Function import UpdateIndividualFaceCharactor
-    #         UpdateIndividualFaceCharactor(i, face_encoding)
-    #     try:
-    #         os.remove(pic_file_name)
-    #     except:
-    #         pass
     def OnUpdateStaffTree(self,event):
         item=self.department_tree.tree.GetFocusedItem()
         itemdata=self.department_tree.tree.GetItemData(item)
@@ -320,7 +230,7 @@ class MyMDI(wx.MDIParentFrame):
     def CreateMenuBar(self):
         menu_SYS = wx.Menu()
         item = wx.MenuItem(menu_SYS, ID_Exit, "&X  退出")
-        bmp = wx.Bitmap(os.path.normpath(os.path.join(bitmapDir, "exit-16.png")), wx.BITMAP_TYPE_PNG)
+        bmp = wx.Bitmap("D:\\HRM\\bitmaps"+"\\exit-16.png", wx.BITMAP_TYPE_PNG)
         item.SetBitmap(bmp)
         menu_SYS.Append(item)
 
@@ -333,17 +243,17 @@ class MyMDI(wx.MDIParentFrame):
         menubar.Append(menu_HR, "&S 参数设置")
         menu_HA = wx.Menu()
         item = wx.MenuItem(menu_HA, UPDATE_FACE_CHARACTOR_ALL_ID, "更新面部特征数据")
-        bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "ok5.png"))).Scale(width=16, height=16,
+        bmp = wx.Image("D:\\HRM\\bitmaps"+"\\ok5.png").Scale(width=16, height=16,
                                                                                       quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
         item.SetBitmap(bmp)
         menu_HA.Append(item)
         item = wx.MenuItem(menu_HA, FACE_RECOGNITION_ID, "人脸识别1")
-        bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "ok5.png"))).Scale(width=16, height=16,
+        bmp = wx.Image("D:\\HRM\\bitmaps"+"\\ok5.png").Scale(width=16, height=16,
                                                                                       quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
         item.SetBitmap(bmp)
         menu_HA.Append(item)
         item = wx.MenuItem(menu_HA, FACE_PLUS_PLUS_ID, "人脸识别2")
-        bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "ok5.png"))).Scale(width=16, height=16,
+        bmp = wx.Image("D:\\HRM\\bitmaps"+"\\ok5.png").Scale(width=16, height=16,
                                                                                       quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
         item.SetBitmap(bmp)
         menu_HA.Append(item)

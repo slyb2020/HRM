@@ -37,9 +37,9 @@ class DepartmentManageDialog(wx.Dialog):
         line = wx.StaticLine(self, -1, size=(30, -1), style=wx.LI_HORIZONTAL)
         sizer.Add(line, 0, wx.GROW | wx.RIGHT | wx.TOP, 5)
         btnsizer = wx.BoxSizer()
-        bitmap1 = wx.Bitmap(os.path.normpath(os.path.join(bitmapDir, "ok4.png")), wx.BITMAP_TYPE_PNG)
-        bitmap2 = wx.Bitmap(os.path.normpath(os.path.join(bitmapDir, "cancel1.png")), wx.BITMAP_TYPE_PNG)
-        bitmap3 = wx.Bitmap(os.path.normpath(os.path.join(bitmapDir, "aquabutton.png")), wx.BITMAP_TYPE_PNG)
+        bitmap1 = wx.Bitmap(bitmapDir+"ok4.png", wx.BITMAP_TYPE_PNG)
+        bitmap2 = wx.Bitmap(bitmapDir+"cancel1.png", wx.BITMAP_TYPE_PNG)
+        bitmap3 = wx.Bitmap(bitmapDir+"aquabutton.png", wx.BITMAP_TYPE_PNG)
         btn_ok = wx.Button(self, wx.ID_OK, "确认", size=(200, 45))
         btn_ok.Bind(wx.EVT_BUTTON,self.OnOkBTN)
         btn_ok.SetBitmap(bitmap1, wx.LEFT)
@@ -155,32 +155,32 @@ class DepartmentManageTree(DepartmentTree):
             itemdata = self.tree.GetItemData(item)
             if(itemdata=="厂"):
                 self.Bind(wx.EVT_MENU, self.OnNewDepartment, id=NewChuID)
-                self.Bind(wx.EVT_MENU, self.OnExpandRoot, id=ExpandRootID)
+                # self.Bind(wx.EVT_MENU, self.OnExpandRoot, id=ExpandRootID)
                 self.Bind(wx.EVT_MENU, self.OnCollapseRoot, id=CollapseRootID)
                 # make a menu
                 menu = wx.Menu()
                 # Show how to put an icon in the menu
                 item = wx.MenuItem(menu, NewChuID,"新建部门")
                 # bmp = images.Smiles.GetBitmap()
-                bmp = wx.Bitmap(os.path.normpath(os.path.join(bitmapDir, "folder_new.png")), wx.BITMAP_TYPE_PNG)
+                bmp = wx.Bitmap(bitmapDir+"folder_new.png", wx.BITMAP_TYPE_PNG)
                 # bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "folder_new.png"))).Scale(width=28, height=28,
                 #                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
-                item = wx.MenuItem(menu, ExpandRootID,"全部展开")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "expand.png"))).Scale(width=28, height=28,
+                # item = wx.MenuItem(menu, ExpandRootID,"全部展开")
+                bmp = wx.Image(bitmapDir+"expand.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
 
                 item = wx.MenuItem(menu, CollapseRootID,"全部收起")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "collapse.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"collapse.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
                 # add some other items
                 item = wx.MenuItem(menu, DeleteChildrenID,"删除所属子部门")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "delete-folder.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"delete-folder.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
@@ -192,19 +192,19 @@ class DepartmentManageTree(DepartmentTree):
                 menu = wx.Menu()
                 # Show how to put an icon in the menu
                 item = wx.MenuItem(menu, NewKeID,"新建子部门")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "lbnews.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"lbnews.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
                 # add some other items
                 item = wx.MenuItem(menu, DeleteItemID,"删除此部门")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "cancel1.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"cancel1.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
                 # add some other items
                 item = wx.MenuItem(menu, DeleteChildrenID,"删除所属子部门")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "delete-folder.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"delete-folder.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
@@ -216,19 +216,19 @@ class DepartmentManageTree(DepartmentTree):
                 menu = wx.Menu()
                 # Show how to put an icon in the menu
                 item = wx.MenuItem(menu, NewPositionID,"新建子部门")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "lbnews.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"lbnews.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
                 # add some other items
                 item = wx.MenuItem(menu, DeleteItemID,"删除此部门")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "cancel1.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"cancel1.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
                 # add some other items
                 item = wx.MenuItem(menu, DeleteChildrenID,"删除所属子部门")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "delete-folder.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"delete-folder.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
@@ -240,13 +240,13 @@ class DepartmentManageTree(DepartmentTree):
                 menu = wx.Menu()
                 # Show how to put an icon in the menu
                 item = wx.MenuItem(menu, RenameItemID,"重命名")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "lbnews.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"lbnews.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)
                 # add some other items
                 item = wx.MenuItem(menu, DeleteItemID,"删除此工位")
-                bmp = wx.Image(os.path.normpath(os.path.join(bitmapDir, "-.png"))).Scale(width=28, height=28,
+                bmp = wx.Image(bitmapDir+"-.png").Scale(width=28, height=28,
                                                                 quality=wx.IMAGE_QUALITY_HIGH).ConvertToBitmap()
                 item.SetBitmap(bmp)
                 menu.Append(item)

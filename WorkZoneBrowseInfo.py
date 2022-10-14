@@ -461,7 +461,7 @@ class BrowseIndividualInfoPanel(wx.Panel):
         hbox.Add(self.county_CTRL, 0)
         hbox.Add(label, 0, wx.TOP | wx.RIGHT, 5)
         hbox.Add((10,-1))
-        self.road=data[28]
+        self.road=data[28] if data[28] else ""
         self.road_CTRL=wx.TextCtrl(self,-1, value=self.road, size=(280, 25), style=wx.TE_READONLY)
         self.road_CTRL.Enable(False)
         label = wx.StaticText(self, -1, "街道", size=(30, -1), style=wx.TE_RIGHT)
@@ -508,6 +508,13 @@ class BrowseIndividualInfoPanel(wx.Panel):
                     position_list=i[1]
             for i in position_list:
                 list.append(i[0])
+            if position_list==[]:
+                items = jobTitleDic[ke]
+                self.rank_CTRL.SetItems(items)
+                self.rank_CTRL.SetValue(items[0])
+            else:
+                self.rank_CTRL.SetItems([])
+                self.rank_CTRL.SetValue("")
         if(list):#说明有工位列表
             # self.position_COMBO.Show(True)
             self.position_COMBO.SetItems(list)
@@ -572,8 +579,8 @@ class BrowseIndividualInfoPanel(wx.Panel):
         self.ke_COMBO.Enable(False)
         self.position_COMBO.SetItems([])
         self.position_COMBO.Enable(False)
-        # self.Layout()
-        # self.Refresh()
+        self.rank_CTRL.SetItems([])
+        self.rank_CTRL.SetValue("")
         if ke_list!=[]:#如果"ke"列表不为空，说明后面害的通过combo控件来选择可，所以需要对ke_combo控件进行初始化
             list=[]
             for i in ke_list:#根据"ke"列表生成一个纯粹的下属科名列表（科列表里还包括各个科所属的工位名，不能直接用）
@@ -658,7 +665,6 @@ class BrowseIndividualInfoPanel(wx.Panel):
         today = datetime.datetime.now()
         if(employment_state!=self.ex_employment_state):
             if(self.ex_employment_state=='离职'):
-                # print"换成工龄"
                 self.panel2.DestroyChildren()
                 hbox=wx.BoxSizer()
                 label = wx.StaticText(self.panel2, -1, "工龄:", size=(60, -1), style=wx.TE_RIGHT)
@@ -671,7 +677,6 @@ class BrowseIndividualInfoPanel(wx.Panel):
                 self.panel2.SetSizer(hbox)
                 self.panel2.Layout()
             elif(employment_state=='离职'):
-                # print"换成离职时间"
                 self.panel2.DestroyChildren()
                 hbox=wx.BoxSizer()
                 label = wx.StaticText(self.panel2, -1, "离职时间:", size=(60, -1), style=wx.TE_RIGHT)

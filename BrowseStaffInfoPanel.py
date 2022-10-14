@@ -11,9 +11,9 @@
 import wx.adv
 import os
 import sys
-dirName = os.path.dirname(os.path.abspath(__file__))
-bitmapDir = os.path.join(dirName, 'bitmaps')
-sys.path.append(os.path.split(dirName)[0])
+# # dirName = os.path.dirname(os.path.abspath(__file__))
+# # bitmapDir = os.path.join(dirName, 'bitmaps')
+# sys.path.append(os.path.split(dirName)[0])
 from ID_DEFINE import *
 ###################HyperTreeListData######################################
 import wx.lib.agw.hypertreelist as HTL
